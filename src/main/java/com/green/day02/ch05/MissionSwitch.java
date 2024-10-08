@@ -25,8 +25,8 @@ public class MissionSwitch {
                     System.out.println("당신은 평균보다 작습니다.");
                 } break;
             default:
+        } // 중복된 구간이 많아져서 작동은 해도 좋은 코드는 아님
 
-        }
         switch(gender){
             case "m":
                 System.out.printf("당신은 평균보다 %s니다.\n",height >= 172 ? "큽":"작습");
@@ -36,8 +36,24 @@ public class MissionSwitch {
                 break;
             default:
                 System.out.printf("성별을 잘못 입력하였습니다.\n");
+        } // 다 좋지만 딱 평균일때를 나타낼만한 방법이 귀찮아짐
+        // 한다고 하면 if(height== 172)와 else로 작성정도
 
+        // 가장 올바를만한 답안
+
+        int standHeight = 159;
+        switch(gender){
+            case "m":
+                standHeight = 172;
         }
+        if(standHeight < height){
+            System.out.println("당신은 평균보다 큽니다.");
+        } else if(standHeight > height){
+            System.out.println("당신은 평균보다 작습니다.");
+        } else {
+            System.out.println("당신은 평균입니다.");
+        }
+
         int i = 0;
         while(i==0){
             Scanner scan1 = new Scanner(System.in);
