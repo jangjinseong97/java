@@ -11,7 +11,6 @@ public class SwitchLoof {
         int height = scan.nextInt();
 
 
-
         int averageHeight = 159;
         while (L == 1){
             System.out.print("성별을 입력해 주세요. (w/m)");
