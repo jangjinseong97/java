@@ -9,7 +9,10 @@ public class SwitchLoof {
         Scanner scan = new Scanner(System.in);
         System.out.print("키를 정수값으로 입력해 주세요.(cm)");
         int height = scan.nextInt();
-
+        while(L == 0) {
+            System.out.print("키를 정수값으로 입력해 주세요.(cm)");
+            int height1 = scan.nextInt();
+        }
         // 어떤식으로 해야지 정수값이 아닌 값을 입력 받았을 때 다시 받을수 있게 루프를 만들 수 있을까?
 
         int averageHeight = 159;
