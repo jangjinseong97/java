@@ -10,6 +10,5 @@ public class OverFlow {
         byte var2 = (byte)128; // = 128을 하면 오류가뜸 범위 밖이라?
         System.out.printf("var1 : %d\n var2 : %d\n", var1, var2);
         // var2 가 한바퀴 돌고 나오는 -128이 나오게됨
-
     }
 }
