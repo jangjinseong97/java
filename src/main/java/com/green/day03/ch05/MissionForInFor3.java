@@ -26,7 +26,7 @@ public class MissionForInFor3 {
                 System.out.println();
             }
         }
-        // 위와 같이 for문 하나로도 해결 가능
+        // 위와 같이 if 를 사용하여 for문 하나로도 해결 가능
         // star*star 바로 넣는것도 괜찮지만 변수 선언을 외부에서 한 뒤 끌어오는것이 더 안전
     }
 }
