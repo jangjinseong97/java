@@ -19,7 +19,8 @@ public class MissionForInFor4 {
                 System.out.printf(" ");
             }
             n--;
-            for(int k=1; k<=i; k++){
+            int a = 2 * i;
+            for(int k=1; k<=a; k++){
                 System.out.printf("*");
             }
             System.out.println();
