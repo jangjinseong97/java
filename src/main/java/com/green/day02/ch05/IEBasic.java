@@ -21,3 +21,4 @@ public class IEBasic {
         // if(true) 면 if 뒤의 중괄호가 if(false)이면 else 뒤의 중괄호가 실행
     }
 }
+

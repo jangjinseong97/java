@@ -47,9 +47,11 @@ public class MethodStudy {
         // 작성시 변수마다 타입을 다 적어줘야된다.
         System.out.printf("%d + %d = %d\n", n1, n2, (n1 + n2));
     }
-    // 비 void 메소드
-    // return 메소드
+    // 비 void 메소드 ( void 자리에 다른 레퍼런스 타입(int String 기타등등)이 들어간것)
+    // 이때 return 이 필수로 들어가야된다.
     static int retrunSum(int n1, int n2){
         return n1 + n2;
     }
+    // 항상 메소드의 위치는 class 아랫구간에 있어야 된다. 그외의 위치는 상관 없다
+    // (메인메소드보다 위에 있거나 앞에 있어도 class 다음 구간인 이상 지장은 없다)
 }
