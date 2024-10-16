@@ -20,5 +20,6 @@ public class BankAccountTest {
         ba.checkMyBalance();
         // ba 와 ba3가 각각 다른 변수로 기억되어 따로 값이 저장되는 모습
 
+        // BankAccount ba2 = new String("안녕"); BankAccount에는 String이 담기지 않는 모습
     }
 }

@@ -29,8 +29,10 @@ public class PassingRef {
         // 이부분이 아래처럼 적혔더라면 static 이 없는 메소드로 작성되어야 됬다.
         PassingRef pf = new PassingRef(); // 클래스이름 변수 = new 클래스이름();
         pf.check(ba); // 변수.메소드명(변수)
+
+        // check ba로 알수있는 정보는 void, static
     }
-     void check(BankAccount ba){
+     static void check(BankAccount ba){
         ba.checkMyBalance();
     }
 }
