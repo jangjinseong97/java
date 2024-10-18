@@ -31,17 +31,20 @@ public class EnhancedForInst {
         System.out.println(sum);
 
         // 배열에서 제품명이 Apple 인것만 찾아서 콘솔에 출력
-        for(Product item : arr){
-            if(item.getName().equals("Apple")) {
-                System.out.println(item);
+        for(Product ite : arr){
+            if(ite.getName().equals("Apple")) {
+                System.out.println(ite);
             }
         }
+        // 여기서도 item은 변수명인것이라 바뀔 수 있다.
         for(Product item:arr) {
             if (item.getName() == "Apple") {
                 System.out.println(item);
             }
         }
         // 이것도 나오긴 하지만 올바르지 않은 방법같은데
+        // 같은 공간이라 위의 ==이 true가 찍히는것 다른공간이면 String이 되어 비교될 가능성이 높아서
+        // .equals를 쓰는것이 확실한 방법
     }
 }
 
