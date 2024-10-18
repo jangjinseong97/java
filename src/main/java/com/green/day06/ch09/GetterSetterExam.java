@@ -20,6 +20,7 @@ class Student {
 
     public void setName(String name) {
         this.name = name;
+        // 위에서 s2.setName("문자") 로 문자를 여기서 name에 받아 Student의 name에 저장
 
     //this는 나 자신의 주소값이 저장된 상수 (나 자신을 가리킨다)
         // 추가 설명이 있을듯? 없으면 찾아보기
@@ -28,6 +29,7 @@ class Student {
 
     public String getName() {
         return name;
+        // getName으로 위에서 받게된 name을 출력
     //name-getter
     }
 

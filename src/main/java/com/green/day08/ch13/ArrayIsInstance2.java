@@ -4,9 +4,12 @@ package com.green.day08.ch13;
 public class ArrayIsInstance2 {
     public static void main(String[] args) {
         Box[] arr = new Box[5];
+        // 5개의 타입을 선언하는것이므로 여기선 객체타입인 Box인것
+        // Box 계열 객체주소값
         System.out.println(arr.length);
 
         Box b1 = new Box("안녕");
+        // Box 객체주소값
         System.out.println(b1);
         System.out.println(b1.toString());
 
@@ -28,6 +31,9 @@ class Box{
     Box(String conts){
         this.conts = conts;
     }
+    // 생성자는 클래스명과 같아야됨 + 리턴타입이 없어야됨 이때 어디서 쓰이는가?
+    // 여기선 기본생성자가 없다
+
     // 오버라이딩
     public String toString(){
         return conts;
