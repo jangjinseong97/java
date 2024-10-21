@@ -28,9 +28,10 @@ public class Car {
     }
 
     public Car(String colo, String gearType, int door) {
-        color = colo; //매개변수명이 멥버필드명과 달랐다면 this.을 생략할 수 있었다.
+        color = colo; //매개변수명이 맴버필드명과 달랐다면 this.을 생략할 수 있었다.
         this.gearType = gearType;
         this.door = door;
+        // c문구
     }
 
     public void introduce() {
@@ -61,6 +62,6 @@ class CarTest {
         c4.introduce();
         // 기본이 white가 되어 있었으므로 굳이 넣지않아도 되는것
         //"white 컬러의 auto 기어를 가진 6개의 문짝이 있는 자동차"가 표시될 수 있게 해주세요.
-        // c3과 c4는 b와 연결
+        // c3는 c c4는 b와 연결
     }
 }

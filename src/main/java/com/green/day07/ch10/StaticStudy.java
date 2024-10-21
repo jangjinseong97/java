@@ -68,7 +68,8 @@ class StaticNumBox {
     static void sum() {
         System.out.println(n1 + n2);
         //System.out.println(n3 + n4); //static 메소드에서 인스턴스 멤버필드 접근 불가
-        // n3와 n4는 위의 StaticNumber의 중괄호에 있기 때문
+        // n3와 n4는 static이 없기 때문 만약 접근하고 싶으면 sum이 static이 없어야 가능
+        // 혹은 n3과 n4가 static이 필요 아니면 다른방법이 있는지 물어보기
 
         //hello(); //static메소드에서 인스턴스 메소드 호출 불가 하고싶으면 직접적으로 호출을 했어야됨
         StaticNumBox ex = new StaticNumBox();
@@ -88,8 +89,8 @@ class NonStaticNumBox {
     static int n4;
 
     void sum() {
-        System.out.println("NonStatic sum"+n1 + n2);
-        System.out.println("NonStatic sum"+n3 + n4); //인스턴스 메소드에서 클래스 멤버필드 접근 가능하다.
+        System.out.println("NonStatic sum"+(n1 + n2));
+        System.out.println("NonStatic sum"+(n3 + n4)); //인스턴스 메소드에서 클래스 멤버필드 접근 가능하다.
         hello();
 
         //인스턴스 메소드에서 클래스 멤버메소드 호출 가능하다.

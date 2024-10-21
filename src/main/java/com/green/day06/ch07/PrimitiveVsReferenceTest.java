@@ -7,11 +7,13 @@ public class PrimitiveVsReferenceTest {
     public static void main(String[] args) {
         int num = 10;
         changeNum(num);
+        // 가장 아래의 int changeNum에 넣게되어 처음 값이 100으로 출력 void라 값은 반환x
         System.out.println("num: " + num);
-        // 해당은 아래의 int changeNum에 넣엇지만 10이 나오는것
+        // 해당은 아래의 int changeNum에 넣엇지만 값은 return(반환) 되지 않아 10이 나오는것
         NumberBox nb = new NumberBox();
         nb.num = 10;
-        // nb 를 가장 아래의 NumberBox로 보내었기에 num을 int라는 변수로 지정된것 이를 nb에 주소값 저장
+        // nb 를 가장 아래의 NumberBox로 보내었기에 num을 int라는 변수로 지정된것 이를 nb에 주소값 저장 >> 잘못된 생각인듯?
+        // NumberBox라는 새로운 reference 타입을 작성 해둔것에 10이란 데이터를 저장 해서 주었기에 가 맞는가
         changeNum(nb);
         System.out.println("nb.num: " + num);
         int n =1;

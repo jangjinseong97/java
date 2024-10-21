@@ -8,6 +8,7 @@ public class DupRef {
         ba1.deposit(1000);
         // 참조변수인 ba1가 참조하는 인스턴트(작성해둔 BankAccount클래스)에서 deposit를 불러낸 것
         ba2.checkMyBalance();
+        // ba2와 ba1의 주소값이 같으므로 ba1에 저장해둔 값이 ba2를 불러옴에도 동일하게 출력
 
         // BankAccount ba1가 의미하는것은
         // 참조변수를 만든것 변수명 ba1인 거기에 주소값을 저장

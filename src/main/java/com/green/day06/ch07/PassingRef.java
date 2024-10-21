@@ -17,7 +17,7 @@ public class PassingRef {
         // 코딩을 했었는데 null로 이것을 해제한것
 
         // ba2.checkMyBalance(); null인 상태에서 메소드르 호출하여
-        // NullPointException 이 발생(오류)
+        // NullPointException 이 발생(런타임 에러)
 
         // null의 의므는 객체를 가르키고 있지 않다.(주소값 없다) 라고 적혀있는데
         if(ba2 != null){
@@ -26,11 +26,13 @@ public class PassingRef {
         System.out.println("ba2 = null 로 공백상태로 만들었으므로 위의 if문이 false");
 
         // check(ba);
+
         // 이부분이 아래처럼 적혔더라면 static 이 없는 메소드로 작성되어야 됬다.
         PassingRef pf = new PassingRef(); // 클래스이름 변수 = new 클래스이름();
         pf.check(ba); // 변수.메소드명(변수)
+        // 위와 같이 작성되었으면 static이 없었을 가능성이 높음
 
-        // check ba로 알수있는 정보는 void, static
+        // 따라서 check ba로 알수있는 정보는 void, static
     }
      static void check(BankAccount ba){
         ba.checkMyBalance();
