@@ -5,7 +5,7 @@ public class MyBusinessMan {
         BusinessMan man1 = new BusinessMan("YOON","Hybrid ELD","Staff Eng");
         System.out.println(man1.getName()); // 맴버필드(BussinessMan class)에 저장이 되었나 확인용
         man1.tellYourSelf(); // BusinessMan 에는 없는 메소드임에도 호출이 되는 모습
-        // 이는 Man class에서 BusinessMan이 상속(extends)받았기 때문
+        // 이는 BusinessMan이 Man class를 상속(extends)받았기 때문
         System.out.println(man1.toString()); // 이 toString도 위와 같은 이유로 Object에서 상속받아 호출되는 것
         man1.jump();
         System.out.println("---");
@@ -71,7 +71,10 @@ class BusinessMan extends Man {
         System.out.printf("%s에 다니는 %s가 점프!\n", company,getName());
         // 여기서 name은 private였기에 상속받았음에도 바로 접근이 불가능
         // 그래서 public으로 상속받은 getName의 값을 얻는것
-        // 이때 getName() 앞에 this. super. 둘다 붙여도 상관x (어쳐피 생략된것)
+        // 이때 getName() 앞에 this. super. 둘다 붙여도 상관x (어쳐피 생략된것)/
+        //this. 은 어디서든지 접근 가능
+        // . 은 맴버필드or맴버메소드 접근시
+
     }
 
     public void whatIsDoing(){

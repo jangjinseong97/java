@@ -18,7 +18,7 @@ public class MyArraysTest {
         System.out.println(MyArrays.toString(arr2));
         System.out.println("------------");
         int[] arr3 = MyArrays.copyOf(arr);
-        System.out.println(arr == arr3); // false
+        System.out.println(arr == arr3); // false >> true찍히는데?
         System.out.println(MyArrays.toString(arr3)); // 같은값
 
         int[] arr4 = MyArrays.copyOf(arr,2);

@@ -24,10 +24,11 @@ public class MethodOverloading {
     public void sum(String str, int n1) {}
     public void sum(int n1, String str) {}
     //public String sum(int n1, int n2) { return "String"; }
-    // 리턴타입으로는 구분하지 않는다. v
-    // oid쪽이 String으로 다르다고 중복되는건 x
+    //리턴타입으로는 구분하지 않는다.
+    // == void쪽이 String으로 다르다고 중복되는건 x
+
     //public void sum(int a, int b) {} //매개변수명으로 구분하지 않는다.
-    // 앞부분이 동일하다면 동일한 int 타입만 2개고 매개변수만 달라도 중복x
+    // == 앞부분이 동일하다면 동일한 int 타입만 2개고 매개변수만 달라도 중복x
 }
 
 class Test {

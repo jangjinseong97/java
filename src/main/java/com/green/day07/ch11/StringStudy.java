@@ -49,7 +49,7 @@ public class StringStudy {
         System.out.println(str7.equals(str8));
         System.out.println(str7.compareTo(str8));
         System.out.println(str8.compareTo(str7));
-        // 왜 -32 32인지 모름
+        // 왜 -32 32인지 모름 >> 아스키값 기준으로 첫번째 문자부터 비교하므로
 
         System.out.println(str7.compareTo("LExi"));
         //0이 나오면 같은 문자열이다.

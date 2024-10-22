@@ -63,7 +63,5 @@ public class BuildString {
         // 123 >> 12345678 >> 345678>> kk678
 
 
-        System.out.println(sb3);
-
     }
 }

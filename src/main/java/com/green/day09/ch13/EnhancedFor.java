@@ -12,10 +12,10 @@ public class EnhancedFor {
         System.out.println("------------------");
 
         for(int item : arr){
-            // item 이 1개씩이고 arr이 여러개 포함된것 두개의 타입은 같아야 된다.
-//            if(item == 34){
-//                break;
-//            }
+//             item 이 1개씩이고 arr이 여러개 포함된것 두개의 타입은 같아야 된다.
+            if(item == 34){
+                break;
+            }
             System.out.println(item);
         }
         // 위의 for문과 같은 결과가 나옴

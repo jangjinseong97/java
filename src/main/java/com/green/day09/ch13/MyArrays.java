@@ -1,6 +1,7 @@
 package com.green.day09.ch13;
 
 public class MyArrays {
+    //array 와 linked list는 비슷하지만 속도면에선 array linked list는 수정에 용이함
 
     // arr를 들고와서 이를 for문에 집어넣고 반환
      static String toString(int[] arr){
