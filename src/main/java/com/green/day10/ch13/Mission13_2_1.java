@@ -11,6 +11,7 @@ public class Mission13_2_1 {
         public static void addOneDArr(int[] arr, int add){}
          */
         int[] arr = {1, 2, 3, 4, 5};
+
         addOneDArr(arr,3); // arr의 모든 배열값이 3씩 더해짐
         System.out.println(Arrays.toString(arr));
         int[][] arr2 = {
@@ -20,10 +21,11 @@ public class Mission13_2_1 {
         addTwoDArr(arr2, 4);
         System.out.println(Arrays.deepToString(arr2));
     }
-    public static void addTwoDArr(int[][] arr2, int add){
-        for (int n=0;n<arr2.length;n++){
-            addOneDArr(arr2[n],add);
+    public static void addTwoDArr(int[][] arr, int add){
+        for (int n=0;n<arr.length;n++){
+            addOneDArr(arr[n],add);
         }
+        // static을 지웟을때 오류 해결하려면 위에 static을 지우라는데 왜?
 
     }
     public static void addOneDArr(int[] arr, int add){

@@ -13,8 +13,9 @@ public class SuperSubStatic {
 }
 
 class SuperCLS {
+    // 위 클래스가 public이 들어가지 못하는 이유는 최대 1파일에 1public class 이므로 추가로 파일명이랑 달라서
     protected static int count;
-
+    // static 한공간을 공유해서 쓰는것
     SuperCLS(){
         count++;
     }

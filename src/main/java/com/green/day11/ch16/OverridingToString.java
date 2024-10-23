@@ -4,6 +4,8 @@ public class OverridingToString {
     public static void main(String[] args) {
         Cake a = new Cake();
         System.out.println(a);
+        // a.equals(a.toString()); >> true? false
+        // a는 위에서의 Cake로 작성된 Cake 타입이고 a.toString은 String 타입이므로 false
         Cheesecake b = new Cheesecake();
         System.out.println(b);
         Cake c = b;

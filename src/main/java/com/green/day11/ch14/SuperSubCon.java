@@ -7,6 +7,7 @@ public class SuperSubCon {
         // super(); 가 항상 자식 생성자 가장 위에 있으므로 그로인해
         // ClassC 의 sout가 출력되기 전에 ClassB를 ClassB 의 sout가 출력되기 전에 ClassA가 호출되어
         // ClassA ClassB ClassC가 각각 출력이 되는것
+        // 코드를 물려받는게 x 객체화가 되는것o
     }
 }
 
@@ -31,6 +32,7 @@ class ClassB extends ClassA{
 
 class ClassC extends ClassB{
     public ClassC(){
+        super();
         System.out.println("==== ClassC ====");
     }
 
