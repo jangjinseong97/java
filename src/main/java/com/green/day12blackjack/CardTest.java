@@ -15,3 +15,15 @@ public class CardTest {
         cd.checkCard();
     }
 }
+class CardTest2{
+    public static void main(String[] args) {
+        Gamer gamer = new Gamer();
+        CardDeck cd = new CardDeck();
+        Card c1 = cd.draw();
+        gamer.receiveCard(c1); // 카드저장
+        gamer.receiveCard(cd.draw()); // 카드저장
+        gamer.receiveCard(cd.draw()); // 카드저장
+        System.out.println("----------");
+        gamer.showYourCards();
+    }
+}

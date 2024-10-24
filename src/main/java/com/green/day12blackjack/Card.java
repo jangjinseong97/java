@@ -28,4 +28,5 @@ public class Card {
     public String toString(){
         return String.format("%s(%s)",pattern,denomination);
     } // 따로 작성하지 않으면 주소값이 나오는 이유는 Object 의 메소드 때문
+
 }
