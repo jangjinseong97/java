@@ -62,13 +62,13 @@ public class PolyStudy {
         System.out.println(ani4 instanceof Animal); // bird 주소값 / Animal타입
 
         System.out.println("--------------");
-
+//        PolyStudy a = new PolyStudy();
         Cat cat2 = new Cat();
         Dog dog2 = new Dog();
         BullDog bull2 = new BullDog();
         Bird bird2 = new Bird();
 
-        animalCrying(cat2);
+//        a.animalCrying(cat2);
         animalCrying(dog2);
         animalCrying(bull2); // jump() 까지호출
         animalCrying(bird2);

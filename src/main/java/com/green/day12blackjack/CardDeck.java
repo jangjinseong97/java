@@ -5,10 +5,13 @@ import com.green.day07.ch07.Car;
 public class CardDeck {
     private final Card[] cards; // 뒤에 new Card[52];를 하여도 되지만 보통 생성자쪽에 한다.
     // 배열인 cards 의 주소값을 바꿀수 없다는뜻 배열안의 값은 바꿀수 있는것
-        private final String [] patterns;
+        private final String [] patterns; // 여기 기준 아무값도 지정 안했으므로 null 값이 들어가 있는것
+        // 객체화된 변수라서
         private String [] denomination = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
 
     public CardDeck(){
+        // 여기 생성되는 지역 변수는 null이라도 지정을 해줘야됨
+
         cards = new Card[52];
         patterns = new String[]{"Spade", "Clover", "Diamond", "Heart"};
 //        Card a = new Card("","");
@@ -113,7 +116,7 @@ public class CardDeck {
 //            return String.format("%d",n);
             return String.valueOf(n);
         }
-        return "";
+        return ""; // 참고로 " " 와 ""는 다름(스페이스바로 인해 길이부터 달라짐
     }
 
     public String getDenomination2(int n){
