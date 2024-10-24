@@ -93,14 +93,20 @@ public class MyArrayList {
         }
         return -1;
     }
+
+
+    // 아직 미완성
     public int lastIndexOf(int a){
         for(int i=arr.length;i<0;i--){
-            if(a == arr[3]){
-                return arr.length-i;
+            if(a == arr[i]){
+                return i;
             }
         }
         return -1;
     }
+    // 아직 미완성
+
+
     public int remove(){
         int [] a = new int[arr.length-1];
 //        int k=0;

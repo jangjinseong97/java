@@ -74,15 +74,16 @@ public class CardDeck {
         shuffle(); // 이건 아래의 메소드로 작성후 해서
 
         // 생성자 안에 있어서 호출할떄 자동으로 출력되서 test에 값이 바로 나오는것
-        for(Card c : cards){
-            System.out.println(c);
+
+//        for(Card c : cards){
+//            System.out.println(c);
+//        }         shuffle(); 확인용
 
 //            System.out.printf("%s(%s)",c.getPattern(),c.getDenomination());
 
             // Card에서 toString을 Override 했어야 된것.
             // c가 주소값이 나오는건 toString (생략되어있는)때문이였기에 >> c.toString 에서 .toString이 생략
             // 여기서 c는 Card의 주소값이므로 CardDeck이 아닌 Card에서 메소드를 작성해야되는것
-        }
     }
 //    public String getDenomination(int n){
 //

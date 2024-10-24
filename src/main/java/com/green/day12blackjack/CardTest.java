@@ -1,5 +1,7 @@
 package com.green.day12blackjack;
 
+import java.util.List;
+
 public class CardTest {
     public static void main(String[] args) {
         CardDeck cd = new CardDeck(); // 변수는 대문자 사용xxxxxxx
@@ -23,7 +25,21 @@ class CardTest2{
         gamer.receiveCard(c1); // 카드저장
         gamer.receiveCard(cd.draw()); // 카드저장
         gamer.receiveCard(cd.draw()); // 카드저장
+        gamer.receiveCard(cd.draw()); // 카드저장
+        gamer.receiveCard(cd.draw()); // 카드저장
         System.out.println("----------");
         gamer.showYourCards();
+        List<Card> list = gamer.openCards();
+    }
+}
+
+class CardTest3{
+    public static void main(String[] args) {
+        CardDeck cd = new CardDeck();
+        Dealer dealer = new Dealer();
+        dealer.receiveCard(cd.draw());
+        dealer.receiveCard(cd.draw());
+        dealer.receiveCard(cd.draw());
+        dealer.showYourCards();
     }
 }
