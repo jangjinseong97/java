@@ -28,6 +28,7 @@ public abstract class AbstractStudy {
 class ImplementsStudy extends AbstractStudy{
 
     // 부모의 추상메소드를 무조건 구현해줘야 된다. 아님 컴파일에러
+    @Override
     public void sum(){
         System.out.println(11);
     }

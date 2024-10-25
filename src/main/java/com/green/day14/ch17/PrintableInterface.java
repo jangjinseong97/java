@@ -16,7 +16,8 @@ public class PrintableInterface {
     public static void main(String[] args) {
         Printable p1 = new PrintableImpl();
 //        Printable p1 = new Printable();  추상클래스와 마찬가지로 객체화는 x
-
+        System.out.println(p1.NUM); // static이 아닐떄 사용방법 새 객체선언 거기에서의 p1
+        System.out.println(Printable.NUM); // static 이니까 선언없이도 바로 저기의 p1
     }
 }
 
@@ -27,7 +28,7 @@ public class PrintableInterface {
 //}
 
 interface Printable{
-    int NUM = 0;
+    int NUM = 0; //final 때문에 자주 사용하진 않음
     void print(String doc); // 주로 메소드 때문에 사용함
 }
 
