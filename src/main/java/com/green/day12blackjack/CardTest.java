@@ -1,6 +1,9 @@
 package com.green.day12blackjack;
 
+import com.green.day07.ch07.Car;
+
 import java.util.List;
+import java.util.Scanner;
 
 public class CardTest {
     public static void main(String[] args) {
@@ -29,6 +32,7 @@ class CardTest2{
         gamer.receiveCard(cd.draw()); // 카드저장
         System.out.println("----------");
         gamer.showYourCards();
+        System.out.println(gamer.getPoint());
         List<Card> list = gamer.openCards();
     }
 }
@@ -38,8 +42,46 @@ class CardTest3{
         CardDeck cd = new CardDeck();
         Dealer dealer = new Dealer();
         dealer.receiveCard(cd.draw());
-        dealer.receiveCard(cd.draw());
-        dealer.receiveCard(cd.draw());
+        while (true){
+            if(dealer.getPoint()<=16){
+                dealer.needMoreCard(cd);
+        } else {
+            break;
+        }
         dealer.showYourCards();
+        System.out.println(dealer.getPoint());
+        }
+    }
+}
+
+class CardTest4{
+    public static void main(String[] args) {
+        CardDeck cd1 = new CardDeck();
+        CardDeck cd2 = new CardDeck();
+        Rule b = new Rule();
+        Dealer dealer = new Dealer();
+        Gamer gamer = new Gamer();
+        dealer.receiveCard(cd1.draw());
+        b.dealerRule(dealer,cd1);
+        dealer.showYourCards();
+        System.out.println(dealer.getPoint());
+
+        System.out.println("-----------");
+        gamer.receiveCard(cd2.draw());
+        Scanner sc = new Scanner(System.in);
+        while(true){
+            String a = sc.next();
+            System.out.println("더 뽑으시겠습니까?");
+            if(a.equals("y")){
+                gamer.receiveCard(cd2.draw());
+                gamer.showYourCards();
+                System.out.println(gamer.getPoint());
+            } else if(a.equals("n")){
+                break;
+            } else {
+                System.out.println("잘못입력 다시 확인");
+            }
+        }
+        b.getWinner(dealer,gamer);
     }
 }

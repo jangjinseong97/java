@@ -68,7 +68,7 @@ class UnivFriend2 extends Friend{
     private String major;
     UnivFriend2(String name, String major, String phone){
 //        super("a","b");
-        super(name, phone); // super위치는 무조건 여기ㅇ여야 되는가?
+        super(name, phone); // super위치는 무조건 여기ㅇ여야 되는가? >> 무조건 위쪽에 있어야 됨
         this.major=major;
     }
     @Override

@@ -19,6 +19,7 @@ public class ListStudy {
      */
     public static void main(String[] args) {
         List list = new ArrayList(); // 작성후 알트엔터를 누르면 import들이 자동으로
+        // 형변환 없이 담겼으므로 무조건 List가 부모
         list.add(10); // 0번방에 들어감
         list.add(20); // 1번방에 들어감
 

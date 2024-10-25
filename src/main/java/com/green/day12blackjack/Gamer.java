@@ -9,7 +9,7 @@ public class Gamer {
     // 맴버필드선언 변수명 cards
 //    private Card [] cards;
     private final List<Card> cards;
-    private int point;
+    protected int point;
     public Gamer() {
         cards = new ArrayList();
 
@@ -19,6 +19,7 @@ public class Gamer {
 //        int point = switch (c.getDenomination()){
         point += switch (c.getDenomination()){
             case "A" -> 1;
+//            case "A" -> (point>11 ? 1:10); 이걸로 해결되는건가?
             case "J", "Q", "K" -> 10;
             default -> Integer.parseInt(c.getDenomination()); // 문자열에 들어간 정수를 다시 int로(문자가 섞여있으면 안됨)
         };
@@ -27,14 +28,17 @@ public class Gamer {
     }
     public void showYourCards(){
         for(Card c : cards){
-            System.out.println(c);
+            System.out.printf("%s\t",c);
         }
-        System.out.println(point);
+        System.out.println("");
 //        System.out.println(cards); //List의 toString으로 인해 [a, b, c] 가 나오게 된것.
     }
     public List<Card> openCards(){
 
         return cards;
+    }
+    public int getPoint(){
+        return point;
     }
 }
 
