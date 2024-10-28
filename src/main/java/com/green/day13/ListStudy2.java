@@ -28,9 +28,10 @@ public class ListStudy2 {
         System.out.println(list.size()); // 배열처럼 생겼지만 배열이 아니라서 length 사용불가능??
         list.add(0,30);
         System.out.println("---");
-        System.out.println(list.lastIndexOf(30)); // 가장 먼저 나오는 같은값의 위치(왼쪽)
+        System.out.println(list);
+        System.out.println(list.lastIndexOf(30)); // 가장 먼저 나오는 같은값의 위치(오른쪽)
         System.out.println("---");
-        System.out.println(list.indexOf(30)); // 가장 먼저 나오는 같은 값의 위치(오른쪽)
+        System.out.println(list.indexOf(30)); // 가장 먼저 나오는 같은 값의 위치(왼쪽)
         System.out.println(list.indexOf(100)); // 없는값이면 -1
 
         list.clear(); // 방, 값 비우기

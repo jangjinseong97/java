@@ -36,7 +36,7 @@ public class Rule {
 //            System.out.println("gamer");
 //        } else {
 //            System.out.println("dealer");
-//        }
+//        }X
         // 위의 else if문을 더 줄인것
     }
     public void dealerRule(Dealer dealer, CardDeck cd1){

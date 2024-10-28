@@ -15,6 +15,8 @@ public class Gamer {
 
     }
     public void receiveCard(Card c){
+        if(c==null){
+        } else {
         // switch expression
 //        int point = switch (c.getDenomination()){
         point += switch (c.getDenomination()){
@@ -22,7 +24,8 @@ public class Gamer {
 //            case "A" -> (point>11 ? 1:10); 이걸로 해결되는건가?
             case "J", "Q", "K" -> 10;
             default -> Integer.parseInt(c.getDenomination()); // 문자열에 들어간 정수를 다시 int로(문자가 섞여있으면 안됨)
-        };
+            };
+        }
 //        this.point+=point;
         cards.add(c);
     }
@@ -35,7 +38,7 @@ public class Gamer {
     }
     public List<Card> openCards(){
 
-        return cards;
+        return cards; // cards를 반환 해주는건데 쓸일이 없어보이는데
     }
     public int getPoint(){
         return point;

@@ -1,4 +1,4 @@
-package com.green.etc;
+package com.green.etc.For;
 
 public class ForInFor {
     public static void main(String[] args) {

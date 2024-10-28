@@ -82,7 +82,7 @@ public class MyArrayList {
                 arr1[i]=arr[i-1];
             }
         }
-        arr1[arr.length]=b;
+        arr1[arr.length]=arr[arr.length-1]; // arr1[arr.length] = b로 적혀 있었음
         arr = arr1;
     }
     public int indexOf(int a) {
