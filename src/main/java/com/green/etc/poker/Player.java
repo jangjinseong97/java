@@ -10,6 +10,7 @@ public class Player {
     private int a = 0;
     public Player(){
         cards = new ArrayList();
+//        cards.add(null); 이거 이용해서 0번 지정시 포기하는식으로
     }
     public void receiveCard(OneCard oc){
         a++;

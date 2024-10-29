@@ -29,6 +29,9 @@ public class TestOneCard {
         // 각 플레이어에게 초기 카드 지급
         playerA.receiveCard(deck.draw());
         playerA.receiveCard(deck.draw());
+        playerA.receiveCard(deck.draw());
+        playerA.receiveCard(deck.draw());
+        playerA.receiveCard(deck.draw());
         playerB.receiveCard(deck.draw());
 
         // playerA의 턴 진행

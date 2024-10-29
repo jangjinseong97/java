@@ -2,6 +2,7 @@ package com.green.etc.poker;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class OneCardRule {
     // 시작시 각자 5장뽑음
@@ -14,36 +15,49 @@ public class OneCardRule {
     }
 
     public void turn(Player pl,OneCardDeck uc) {
+
         pl.showYourCards();
         int len = usedCards.size()-1;
         System.out.println("깔려있는 카드: "+usedCards.get(len));
-        int n=0; // 내가 받고싶은값 스캐너로
+        Scanner sc = new Scanner(System.in);
+        System.out.println("낼 카드 선택 없으면 아무카드 선택");
+        int n=sc.nextInt()-1; // 내가 받고싶은값 스캐너로
         int k = pl.size();  // 턴 시작 시 카드 개수 저장
         OneCard oc = pl.getCard(n);  // 선택한 카드 가져오기
         if(oc.getJoker().equals("black")){
             //usedCards 에 used(n) 을 추가
-            pl.useCard(n);
-            turn(pl,uc); // turn메소드 다시 실행
+            oneMore(pl,uc,n); // turn메소드 다시 실행
         }
         if(oc.getJoker().equals("color")){
-            //usedCards 에 used(n) 을 추가
-            pl.useCard(n);
-            turn(pl,uc);
+            oneMore(pl,uc,n);
         }
-        if((oc.getPattern().equals(usedCards.get(0).getPattern()))
-        || (oc.getDem().equals(usedCards.get(0).getDem()))){ //usedCards의 마지막의 카드 패턴
+        if((oc.getPattern().equals(usedCards.get(len).getPattern())))
+            { //usedCards의 마지막의 카드 패턴
             switch (oc.getDem()){
                 case "A", "2", "3", "J", "Q", "K":
-                    //usedCards 에 used(n) 을 추가
-                    pl.useCard(n);
-                    turn(pl,uc);
+                    oneMore(pl,uc,n);
                     break;
             }
-        } else {
+            } else if((oc.getDem().equals(usedCards.get(len).getDem())))
+            { // 같은숫자일떄 여러개 낼수 있는 메소드
+
+            }else if(usedCards.get(len).equals("black")||usedCards.get(len).equals("color")) {
+                if(oc.getDem().equals("A")){
+                oneMore(pl,uc,n);
+                }
+            } else{
             // pl에 uc에서 하나 드로우
+            pl.receiveCard(uc.draw());
         }
     }
-    public void oneMore(Player pl, OneCard oc){
+    public void oneMore(Player pl, OneCardDeck uc,int n){
+
+        usedCards.add(pl.getCard(n));
+        pl.useCard(n);
+        turn(pl,uc);
+    }
+    public void sameNumber(Player pl){
+
 
     }
 
