@@ -25,42 +25,61 @@ public class OneCardRule {
         int k = pl.size();  // 턴 시작 시 카드 개수 저장
         OneCard oc = pl.getCard(n);  // 선택한 카드 가져오기
         if(oc.getJoker().equals("black")){
-            //usedCards 에 used(n) 을 추가
-            oneMore(pl,uc,n); // turn메소드 다시 실행
+            use(pl,n);
+            // 깔린게 color일때만 black를 연속으로 낼 수있음
         }
-        if(oc.getJoker().equals("color")){
-            oneMore(pl,uc,n);
+        else if(oc.getJoker().equals("color")){
+            use(pl,n);
+            // 깔린게 black일때만 color를 연속으로 낼 수있음
         }
-        if((oc.getPattern().equals(usedCards.get(len).getPattern())))
+        else if((oc.getPattern().equals(usedCards.get(len).getPattern())))
             { //usedCards의 마지막의 카드 패턴
             switch (oc.getDem()){
-                case "A", "2", "3", "J", "Q", "K":
+                case "A", "2", "3":
+                    use(pl,n);
+                    case "J", "Q", "K":
                     oneMore(pl,uc,n);
                     break;
+                default:
+                    use(pl,n);
             }
             } else if((oc.getDem().equals(usedCards.get(len).getDem())))
             { // 같은숫자일떄 여러개 낼수 있는 메소드
+                use(pl,n);
+                for(int i=0;i<pl.size()-1;i++){
+                    if(pl.getCard(i).equals(usedCards.get(len).getDem())){
+                        System.out.println("더씀?");
+                        int a = sameNumper(pl);
+                        if(a != 0 && pl.getCard(a).equals(usedCards.get(len).getDem())){
+                            use(pl,a);
+                        }
+                    }
+                }
 
             }else if(usedCards.get(len).equals("black")||usedCards.get(len).equals("color")) {
                 if(oc.getDem().equals("A")){
-                oneMore(pl,uc,n);
+                    use(pl,n);
                 }
             } else{
             // pl에 uc에서 하나 드로우
             pl.receiveCard(uc.draw());
         }
     }
-    public void oneMore(Player pl, OneCardDeck uc,int n){
-
+    public void use(Player pl, int n){
         usedCards.add(pl.getCard(n));
         pl.useCard(n);
+    }
+    public void oneMore(Player pl, OneCardDeck uc,int n){
+
+        use(pl,n);
         turn(pl,uc);
     }
-    public void sameNumber(Player pl){
-
-
+    public int sameNumper(Player pl){
+        pl.showYourCards();
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt()-1;
+        return 0;
     }
-
 
 
 //    // 조건에 맞는 카드일 때만 사용하도록 설정

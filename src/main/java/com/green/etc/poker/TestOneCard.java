@@ -32,6 +32,10 @@ public class TestOneCard {
         playerA.receiveCard(deck.draw());
         playerA.receiveCard(deck.draw());
         playerA.receiveCard(deck.draw());
+        playerA.receiveCard(deck.draw());
+        playerA.receiveCard(deck.draw());
+        playerA.receiveCard(deck.draw());
+
         playerB.receiveCard(deck.draw());
 
         // playerA의 턴 진행
