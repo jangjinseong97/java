@@ -27,19 +27,24 @@ public class TestOneCard {
         Player playerB = new Player();
 
         // 각 플레이어에게 초기 카드 지급
-        playerA.receiveCard(deck.draw());
-        playerA.receiveCard(deck.draw());
-        playerA.receiveCard(deck.draw());
-        playerA.receiveCard(deck.draw());
-        playerA.receiveCard(deck.draw());
-        playerA.receiveCard(deck.draw());
-        playerA.receiveCard(deck.draw());
-        playerA.receiveCard(deck.draw());
+        for(int i=0;i<8;i++) {
+            playerA.receiveCard(deck.draw());
 
-        playerB.receiveCard(deck.draw());
+            playerB.receiveCard(deck.draw());
+        }
 
         // playerA의 턴 진행
-        rule.turn(playerA, deck);
+        while(true) {
+            if(playerA==null){
+                break;
+            }
+            if(playerB==null){
+                break;
+            }
+
+            rule.turn(playerA, deck);
+            rule.turn(playerB, deck);
+        }
 
         // 턴 종료 후 카드 상태 출력
         playerA.showYourCards();

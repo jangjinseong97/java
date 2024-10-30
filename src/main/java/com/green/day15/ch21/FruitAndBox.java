@@ -5,7 +5,7 @@ public class FruitAndBox {
     public static void main(String[] args) {
         Apple a = new Apple();
         AppleBox aa = new AppleBox(a);
-        AppleBox aa1 = new AppleBox(new Apple()); // 다른 방법
+        AppleBox aa1 = new AppleBox(new Apple()); // 다른 방법, 타입이슈로 형변호나 필수
 
         Orange b = new Orange();
         OrangeBox bb = new OrangeBox(b);

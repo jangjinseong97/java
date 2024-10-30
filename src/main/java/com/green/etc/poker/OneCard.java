@@ -6,7 +6,8 @@ public class OneCard {
     private String joker="";
     OneCard(String pattern, String dem){
         this.pattern=pattern;
-        this.dem=dem;
+//        this.dem=dem;
+        this.dem = dem != null ? dem : "";
     }
     OneCard(String joker){
         this.joker=joker;

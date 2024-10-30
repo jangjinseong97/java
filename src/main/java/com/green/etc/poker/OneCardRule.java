@@ -9,6 +9,7 @@ public class OneCardRule {
     // 시작 후 각 턴마다 한장을 내고 1장을 뽑음 (3명으로 설정) 만약 모든 카드를 냈다면 승리
     // 사용된 카드 목록을 저장할 리스트
     private final List<OneCard> usedCards = new ArrayList<>();
+    static int point =0;
     // 생성자: 게임 시작 시 덱에서 첫 번째 카드를 뽑아 usedCards에 저장
     public OneCardRule(OneCardDeck uc) {
         usedCards.add(uc.draw());  // 첫 번째 카드 저장
@@ -26,59 +27,82 @@ public class OneCardRule {
         OneCard oc = pl.getCard(n);  // 선택한 카드 가져오기
         if(oc.getJoker().equals("black")){
             use(pl,n);
+            point+=3;
             // 깔린게 color일때만 black를 연속으로 낼 수있음
         }
         else if(oc.getJoker().equals("color")){
             use(pl,n);
             // 깔린게 black일때만 color를 연속으로 낼 수있음
+            point+=5;
         }
         else if((oc.getPattern().equals(usedCards.get(len).getPattern())))
             { //usedCards의 마지막의 카드 패턴
             switch (oc.getDem()){
                 case "A", "2", "3":
                     use(pl,n);
+                    point ++;
+                    break;
                     case "J", "Q", "K":
                     oneMore(pl,uc,n);
                     break;
+                case "4":
+                    use(pl,n);
+                    point=0;
                 default:
                     use(pl,n);
             }
             } else if((oc.getDem().equals(usedCards.get(len).getDem())))
             { // 같은숫자일떄 여러개 낼수 있는 메소드
+                // 생각해보니 use에 그냥 같은숫자일때 물어보는 메소드를 추가하면 됬음
                 use(pl,n);
-                for(int i=0;i<pl.size()-1;i++){
-                    if(pl.getCard(i).equals(usedCards.get(len).getDem())){
-                        System.out.println("더씀?");
-                        int a = sameNumper(pl);
-                        if(a != 0 && pl.getCard(a).equals(usedCards.get(len).getDem())){
-                            use(pl,a);
-                        }
-                    }
-                }
+//                for(int i=0;i<pl.size()-1;i++){
+//                    if(pl.getCard(i).getDem().equals(usedCards.get(len).getDem())){
+//                        System.out.println("더씀?");
+//                        int a = sameNumber(pl);
+//                        if(a >= 0 && pl.getCard(a).getDem().equals(usedCards.get(len).getDem())){
+//                            use(pl,a);
+//                        }
+//                    }
+//                }
 
-            }else if(usedCards.get(len).equals("black")||usedCards.get(len).equals("color")) {
+            }else if(usedCards.get(len).getJoker().equals("black")||usedCards.get(len).getJoker().equals("color")) {
+            // joker의 값을 얻어야되는데 dem의 값을 얻고있었
                 if(oc.getDem().equals("A")){
                     use(pl,n);
+                    point++;
+                } else if(oc.getDem().equals("4")){
+                    use(pl,n);
+                    point=0;
+                } else if(point==0){
+                    use(pl,n);
                 }
+            } else if(point!=0){
+                for(int i=0;i<point;i++){
+                    pl.receiveCard(uc.draw());
+                }
+                point = 0;
             } else{
             // pl에 uc에서 하나 드로우
-            pl.receiveCard(uc.draw());
-        }
+                pl.receiveCard(uc.draw());
+            }
     }
     public void use(Player pl, int n){
         usedCards.add(pl.getCard(n));
         pl.useCard(n);
     }
     public void oneMore(Player pl, OneCardDeck uc,int n){
-
         use(pl,n);
+        if (pl.size() == 0) {
+            System.out.printf("%s 승리!\n", pl);
+            return;  // 재귀 종료
+        }
         turn(pl,uc);
     }
-    public int sameNumper(Player pl){
+    public int sameNumber(Player pl){
         pl.showYourCards();
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt()-1;
-        return 0;
+        return n;
     }
 
 

@@ -8,7 +8,7 @@ public class ExceptionEx12 {
             System.out.println(e.getMessage());
         }
     }
-    static void method01() throws Exception{
+    static void method01() throws Exception{ //실행때 메소드에 오류가 생기던 말던 던짐
         method02();
     }
     static void method02()throws Exception{
