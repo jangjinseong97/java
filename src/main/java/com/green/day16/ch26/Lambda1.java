@@ -23,6 +23,9 @@ public class Lambda1 {
 @FunctionalInterface
 interface PrintableVer2{
     void print(String str);
+    // 파라미터o 리턴x > 컨슈머
+    // 파라미터x 리턴o > 서플라이
+    // 파라미터o 리턴o > function
 }
 
 @FunctionalInterface

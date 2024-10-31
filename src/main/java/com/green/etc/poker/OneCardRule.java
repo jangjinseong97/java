@@ -35,26 +35,14 @@ public class OneCardRule {
             // 깔린게 black일때만 color를 연속으로 낼 수있음
             point+=5;
         }
-        else if((oc.getPattern().equals(usedCards.get(len).getPattern())))
+        else if((oc.getPattern().equals(usedCards.get(len).getPattern())) || (oc.getDem().equals(usedCards.get(len).getDem())))
             { //usedCards의 마지막의 카드 패턴
-            switch (oc.getDem()){
-                case "A", "2", "3":
-                    use(pl,n);
-                    point ++;
-                    break;
-                    case "J", "Q", "K":
-                    oneMore(pl,uc,n);
-                    break;
-                case "4":
-                    use(pl,n);
-                    point=0;
-                default:
-                    use(pl,n);
-            }
-            } else if((oc.getDem().equals(usedCards.get(len).getDem())))
-            { // 같은숫자일떄 여러개 낼수 있는 메소드
+            demNum(pl,uc,n);
+//            } else if((oc.getDem().equals(usedCards.get(len).getDem()))) // 위에서 또한으로 합치면 됬었다.
+//            { // 같은숫자일떄 여러개 낼수 있는 메소드
+
                 // 생각해보니 use에 그냥 같은숫자일때 물어보는 메소드를 추가하면 됬음
-                use(pl,n);
+
 //                for(int i=0;i<pl.size()-1;i++){
 //                    if(pl.getCard(i).getDem().equals(usedCards.get(len).getDem())){
 //                        System.out.println("더씀?");
@@ -104,7 +92,24 @@ public class OneCardRule {
         int n = sc.nextInt()-1;
         return n;
     }
-
+    public void demNum(Player pl, OneCardDeck uc, int n){
+        OneCard oc = pl.getCard(n);
+        switch (oc.getDem()){
+            case "A", "2", "3":
+                use(pl,n);
+                point ++;
+                break;
+            case "J", "Q", "K":
+                oneMore(pl,uc,n);
+                break;
+            case "4":
+                use(pl,n);
+                point=0;
+            default:
+                use(pl,n);
+                // 따로 이것도 메소드에서 했으면 됬음
+        }
+    }
 
 //    // 조건에 맞는 카드일 때만 사용하도록 설정
 //    boolean cardUsed = shouldUseCard(oc);
