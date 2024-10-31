@@ -25,15 +25,18 @@ public class OneCardRule {
         int n=sc.nextInt()-1; // 내가 받고싶은값 스캐너로
         int k = pl.size();  // 턴 시작 시 카드 개수 저장
         OneCard oc = pl.getCard(n);  // 선택한 카드 가져오기
-        if(oc.getJoker().equals("black")){
+        if((usedCards.get(len).getJoker().equals("black")||(usedCards.get(len).getJoker().equals("color")))&&(point==0)){
             use(pl,n);
+        }
+        else if(oc.getJoker().equals("black")){
             point+=3;
+            use(pl,n);
             // 깔린게 color일때만 black를 연속으로 낼 수있음
         }
         else if(oc.getJoker().equals("color")){
-            use(pl,n);
-            // 깔린게 black일때만 color를 연속으로 낼 수있음
             point+=5;
+            // 깔린게 black일때만 color를 연속으로 낼 수있음
+            use(pl,n);
         }
         else if((oc.getPattern().equals(usedCards.get(len).getPattern())) || (oc.getDem().equals(usedCards.get(len).getDem())))
             { //usedCards의 마지막의 카드 패턴
@@ -56,27 +59,29 @@ public class OneCardRule {
             }else if(usedCards.get(len).getJoker().equals("black")||usedCards.get(len).getJoker().equals("color")) {
             // joker의 값을 얻어야되는데 dem의 값을 얻고있었
                 if(oc.getDem().equals("A")){
-                    use(pl,n);
                     point++;
+                    use(pl,n);
                 } else if(oc.getDem().equals("4")){
-                    use(pl,n);
                     point=0;
-                } else if(point==0){
                     use(pl,n);
                 }
-            } else if(point!=0){
-                for(int i=0;i<point;i++){
-                    pl.receiveCard(uc.draw());
+                 else if(point==0){
+                    use(pl,n);
                 }
-                point = 0;
-            } else{
+//            } else if(point!=0){
+//                for(int i=0;i<point;i++){
+//                    pl.receiveCard(uc.draw());
+//                }
+//                point = 0;
+            }else{
             // pl에 uc에서 하나 드로우
-                pl.receiveCard(uc.draw());
+                dontUsed(pl,uc);
             }
     }
     public void use(Player pl, int n){
         usedCards.add(pl.getCard(n));
         pl.useCard(n);
+        System.out.println(point);
     }
     public void oneMore(Player pl, OneCardDeck uc,int n){
         use(pl,n);
@@ -96,19 +101,41 @@ public class OneCardRule {
         OneCard oc = pl.getCard(n);
         switch (oc.getDem()){
             case "A", "2", "3":
-                use(pl,n);
                 point ++;
+                use(pl,n);
                 break;
-            case "J", "Q", "K":
+            case "J", "Q", "k":
+                if(point==0){
                 oneMore(pl,uc,n);
                 break;
+                } else{
+                    dontUsed(pl,uc);
+                    break;
+                }
             case "4":
-                use(pl,n);
                 point=0;
-            default:
                 use(pl,n);
+                break;
+            default:
+                if(point==0) {
+                    use(pl, n);
+                } else{
+                    dontUsed(pl,uc);
+                }
                 // 따로 이것도 메소드에서 했으면 됬음
         }
+    }
+
+    public void dontUsed(Player pl, OneCardDeck uc){
+        for(int i=0;i<=point;i++) {
+            pl.receiveCard(uc.draw());
+        }
+        point = 0;
+
+    }
+    public void usedShuffle(OneCardDeck oc){
+        OneCard [] a = new OneCard[usedCards.size()];
+
     }
 
 //    // 조건에 맞는 카드일 때만 사용하도록 설정
