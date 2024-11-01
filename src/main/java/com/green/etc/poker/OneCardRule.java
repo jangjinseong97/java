@@ -16,7 +16,6 @@ public class OneCardRule {
     }
 
     public void turn(Player pl,OneCardDeck uc) {
-
         pl.showYourCards();
         int len = usedCards.size()-1;
         System.out.println("깔려있는 카드: "+usedCards.get(len));
@@ -66,8 +65,14 @@ public class OneCardRule {
                     use(pl,n);
                 }
                  else if(point==0){
+//                    dontUsed(pl,uc);
                     use(pl,n);
+                }else {
+
+                    dontUsed(pl,uc);
                 }
+                 // 아니 이거왜 else if point ==0일땐 안됨??
+                 // 이번엔 갑자기 된다.. 왜냐?
 //            } else if(point!=0){
 //                for(int i=0;i<point;i++){
 //                    pl.receiveCard(uc.draw());
@@ -77,14 +82,22 @@ public class OneCardRule {
             // pl에 uc에서 하나 드로우
                 dontUsed(pl,uc);
             }
+        gameOver(pl);
     }
     public void use(Player pl, int n){
+        // pl의 사용카드가 j k q이면 1장더 드로우 하도록 switch문
         usedCards.add(pl.getCard(n));
         pl.useCard(n);
         System.out.println(point);
     }
     public void oneMore(Player pl, OneCardDeck uc,int n){
+        OneCard a=pl.getCard(n);
         use(pl,n);
+//        switch(a.getDem()){
+//            case "J","Q","k":
+//                oneMore(pl,uc,n);
+//                break;
+//        }
         if (pl.size() == 0) {
             System.out.printf("%s 승리!\n", pl);
             return;  // 재귀 종료
@@ -133,9 +146,10 @@ public class OneCardRule {
         point = 0;
 
     }
-    public void usedShuffle(OneCardDeck oc){
-        OneCard [] a = new OneCard[usedCards.size()];
-
+    public void gameOver(Player pl){
+        if(pl.size()>=20){
+            System.out.println("소유 카드 20장 초과 패배");
+        }
     }
 
 //    // 조건에 맞는 카드일 때만 사용하도록 설정
