@@ -14,6 +14,5 @@ public class HashMapCollection {
         System.out.println(map.get("홍길동"));
         System.out.println(map.get("abc")); // 없는 값이면 null
         System.out.println(map.keySet()); // key 값만 출력
-
     }
 }

@@ -1,7 +1,7 @@
 package com.green.day16.ch26;
 // p.653 익명클래스
 /* 익명클래스는 interface 를 implements한 클래스를만들지 않고
-    다이렉트로 interface 를 implements 클래스를 객체화 할때 사용가능
+    다이렉트로 interface 를 implements(구현) 클래스를 객체화 할때 사용가능
     코드작성을 많이 생략가능
     그 보다 더 생략가능한게 람다식
     람다식은 해당 interface의 추상메소드가 하나일때문 가능

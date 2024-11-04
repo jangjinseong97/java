@@ -11,6 +11,8 @@ import java.util.function.Supplier;
 public class SupplierDEmo {
     public static void main(String[] args) {
         Supplier<Integer> supRandom = () -> (int)(Math.random() *50.0);
+//        Supplier<Integer> supRandom = () -> {return (int)(Math.random() *50.0);};
+        // 중괄호를 생략해서 return도 생략됬던것
         System.out.println(supRandom.get());
 
         List<Integer> list = makeIntList(supRandom, 5);
