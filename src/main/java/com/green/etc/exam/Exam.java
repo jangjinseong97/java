@@ -1,4 +1,4 @@
-package com.green.etc;
+package com.green.etc.exam;
 
 public class Exam {
     public static void main(String[] args) {
