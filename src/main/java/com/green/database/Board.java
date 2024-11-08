@@ -58,4 +58,8 @@ public class Board {
         this.updateAt = updateAt;
     }
 
+    public String toString(){
+        return String.format("%d,%s,%s,%s,%s,%s",boardId,title,contents,writer,createdAt,updateAt);
+    }
+
 }
