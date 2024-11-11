@@ -103,10 +103,13 @@ public class BoardDao {
 //                "ORDER BY created_at DESC";
                 "ORDER BY board_id DESC"; // 데이터량이 많아지면 속도 차이가 나버림
         try (Connection conn = MyConnection.getConn()
-             ; PreparedStatement ps = conn.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
+             ; PreparedStatement ps = conn.prepareStatement(sql)
+             ; ResultSet rs = ps.executeQuery()) {
+            // 얘만 executeQuery 인 것은 앞에 up de in 은 자료를 내가 알고 넣는것이지만
+            // select는 내가 모르는 자료를 받기 위함이므로
             while(rs.next()){
                 Board board = new Board();
-                list.add(board);
+                list.add(board); // 주소값이라 위에넣나 아래에넣나 상관x
                 board.setBoardId(rs.getInt("board_id"));
                 String title = rs.getString("title");
                 board.setTitle(title);

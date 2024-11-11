@@ -5,6 +5,7 @@ import com.green.day27.*;
 public class TvFactory {
     //SingleTon 패턴, 싱글톤 패턴
     // 객체는 딱 하나만 만들어서 돌려쓴다.
+    //하나의 생성자만 주어 만듬
 
     private static TvFactory tvFactory;
     public static TvFactory getInstance(){
@@ -28,6 +29,7 @@ public class TvFactory {
 
         Speaker speaker = switch (speakerName){
             case "bose" -> new BoseSpeaker(woofer);
+            // 여기서 이 woofer를 넣는게 DI (주소값을 넣어주는것)
             case "genelec" -> new GenelecSpeaker(woofer);
             default -> null;
         };
