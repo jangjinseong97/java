@@ -22,9 +22,9 @@ public class TestOneCard {
     public static void main(String[] args) {
         OneCardDeck deck = new OneCardDeck();  // 덱 생성
 
-        OneCardRule rule = new OneCardRule(deck);  // 게임 시작 시 첫 카드 추가
-        Player playerA = new Player();
-        Player playerB = new Player();
+        OneCardRule1 rule = new OneCardRule1(deck);  // 게임 시작 시 첫 카드 추가
+        Player playerA = new Player("A");
+        Player playerB = new Player("B");
 
         // 각 플레이어에게 초기 카드 지급
         for(int i=0;i<8;i++) {

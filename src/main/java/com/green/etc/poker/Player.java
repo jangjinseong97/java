@@ -8,8 +8,10 @@ import java.util.List;
 public class Player {
     private final List<OneCard> cards;
     private int a = 0;
-    public Player(){
+    private final String name;
+    public Player(String name){
         cards = new ArrayList();
+        this.name=name;
 //        cards.add(null); 이거 이용해서 0번 지정시 포기하는식으로
     }
     public void receiveCard(OneCard oc){
@@ -40,5 +42,8 @@ public class Player {
     public OneCard getCard(int n){
         OneCard uc = cards.get(n);
         return uc;
+    }
+    public String toString(){
+        return name;
     }
 }

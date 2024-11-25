@@ -59,14 +59,14 @@ public class OneCardRule {
             // joker의 값을 얻어야되는데 dem의 값을 얻고있었
                 if(oc.getDem().equals("A")){
                     point++;
-                    use(pl,n);
+                    demNum(pl,uc,n);
                 } else if(oc.getDem().equals("4")){
                     point=0;
-                    use(pl,n);
+                    demNum(pl,uc,n);
                 }
                  else if(point==0){
 //                    dontUsed(pl,uc);
-                    use(pl,n);
+                    demNum(pl,uc,n);
                 }else {
 
                     dontUsed(pl,uc);

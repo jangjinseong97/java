@@ -17,6 +17,10 @@ public class OneCard {
         return pattern;
     }
 
+    public void setPattern(String pattern) {
+        this.pattern = pattern;
+    }
+
     public String getDem() {
         return dem;
     }
